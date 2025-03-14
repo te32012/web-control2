@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/login_page.dart';
 import 'home.dart';
 import 'shop.dart';
 import 'about.dart';
 import 'contact.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -28,10 +29,10 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Магазин'),
+        title: const Text('Магазин'),
         actions: [
           IconButton(icon: const Icon(Icons.shop), onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => ShopPage()));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => ShopPage(isLoggedIn: IsLogin(),)));
           }),
           IconButton(icon: const Icon(Icons.info), onPressed: () {
             Navigator.push(context, MaterialPageRoute(builder: (context) => AboutPage()));
@@ -54,6 +55,6 @@ class HomeContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('Добро пожаловать в наш магазин!'));
+    return const Center(child: Text('Добро пожаловать в наш магазин!'));
   }
 }
